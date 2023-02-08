@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 05 de JS - Intermediário</title>
+</head>
+
+<body>
+
+
+    <script>
+        function validaCpf(cpf) {
+            if (cpf.length === 11 && !isNaN(cpf)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function formataCpf(cpf) {
+            let cpfCortado = `${cpf.slice(0, 3)}.${cpf.slice(3, 6)}.${cpf.slice(6, 9)}-${cpf.slice(9)}`
+            return cpfCortado
+        }
+
+        function exibeCpf(cpf = []) {
+            for (let i = 0; i <= cpf.length; i++) {
+                if (validaCpf(cpf[i])) {
+                    alert(`${formataCpf(cpf[i])} é um CPF válido`)
+                } else {
+                    alert(`${formataCpf(cpf[i])} é um CPF inválido`)
+                }
+            }
+        }
+
+        let cpfDigitado = [];
+        for (let i = 0; i < 5; i++) {
+            let cpf = prompt('Digite o seu CPF sem pontos ou traço.');
+            cpfDigitado.push(cpf);
+        }
+
+        exibeCpf(cpfDigitado);
+    </script>
+</body>
+
+</html>
